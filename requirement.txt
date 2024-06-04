@@ -1,0 +1,27 @@
+git clone https://github.com/linhezheng19/CAT.git
+cd CAT
+
+conda create -n cat python=3.7
+conda activate cat
+conda install pytorch==1.7.1 torchvision==0.8.2 cudatoolkit=10.1 -c pytorch
+
+pip install timm==0.3.2 opencv-python==4.4.0.46 termcolor==1.1.0 yacs==0.1.8
+
+git clone https://github.com/ptrblck/apex.git
+cd apex
+git checkout apex_no_distributed
+pip install -v --no-cache-dir ./
+
+git clone https://github.com/open-mmlab/mmcv.git
+cd mmcv
+git checkout v1.3.17
+set MMCV_WITH_OPS=1
+python setup.py build_ext
+pip install -e .
+
+pip                    24.0
+urllib3                1.26.18
+mmdet                  2.28.0
+mmengine               0.10.4
+mmsegmentation         0.28.0
+packaging              24.0
